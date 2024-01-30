@@ -1,0 +1,102 @@
+
+This is the implementation of singly linked list.
+It is defined under the TDS namespace.
+
+
+====================================================================================================
+Constructors
+====================================================================================================
+
+
+template <typename T> LinkedList();
+| The linked list can be constructed without any arguments which results in an empty linked list.
+
+
+template <typename T> LinkedList(const std::initializer_list<T> &_init);
+| The linked list can also be constructed with an initializer list of the given templated type.
+
+
+====================================================================================================
+Methods
+====================================================================================================
+
+template <typename T> size_t size() const;
+| Returns the current size of the linked list;
+
+template <typename T> TDS::LinkedList<T>::Node *head() const;
+| Returns the pointer to the head of the linked list.
+
+template <typename T> TDS::LinkedList<T>::Node *tail() const;
+| Returns the pointer to the tail of the linked list.
+
+template <typename T> void add(const T &_data);
+| Appends a new node at the end of the linked list with the given _data.
+
+template <typename T> T &operator[](const size_t &_index);
+| Overloads the [] operator for the linked list which allows access to reference of _data based on
+| their index.
+
+template <typename> const T &operator[](const size_t &_index) const;
+| Overloads the [] operator for a constant linked list which allows access to reference of _data
+| based on their index.
+
+template <typename T> T &at(const size_t &_index);
+| Returns a reference of _data present in node at _index of the linked list.
+| Unlike the [] operator, this performs a bound check before performing the retrieval.
+
+template <typename T> const T &at(const size_t &_index) const;
+| Returns a reference of _data present in node at _index of a constant linked list.
+| Unlike the [] operator, this performs a bound check before performing the retrieval.
+
+template <typename T> void insert(const T &_data, const size_t &_index);
+| Inserts a new node at given _index with the given _data.
+
+template <typename T> void insertAt(const T &_data, const size_t &_index);
+| Inserts a new Node at given _index with the given _data.
+| Unlike the insert method, this performs a bound check before performing the insertion.
+
+template <typename T> void remove(const size_t &_index);
+| Removes the node at the given _index.
+
+template <typename T> void removeAt(const size_t &_index);
+| Removes the node at the given _index.
+| Unlike the remove method, this performs a bound check before performing the removal.
+
+template <typename T> size_t removeAll(const T &_data);
+| Remove all nodes in the linked list that contains the _data.
+
+template <typename T> bool contains(const T &_data) const;
+| Returns true if _data exists in the linked list else returns false.
+
+template <typename T> size_t count(const T &_data) const;
+| Returns the count of _data in the linked list.
+
+template <typename T> void map(void (*_mappingFunction)(T &_data));
+| Runs a given _mappingFunction on all the nodes in the linked list.
+| The function passed to this method must take only one argument which must be the type of the
+| linked list and must not return anything.
+
+template <typename T> void filter(bool (*_filteringFunction)(T &_data));
+| Filters out the linked list with a given _filteringFunction.
+| The function passed to this method must take only one argument which must be the type of the
+| linked list and must return a boolean value of true if the element should be removed else false.
+
+template <typename T> void reverse();
+| Reverses the linked list.
+
+template <typename T> bool empty() const;
+| Returns true if the linked list is empty else returns false.
+
+
+====================================================================================================
+Structures
+====================================================================================================
+
+
+template <typename T> struct Node;
+| This is the structure that represents a single node in the linked list. It stores the value of
+| the node under the attribute 'data' and a pointer to the next node in the list under the name
+| 'next'.
+
+
+Author: Nishant Holla (Jan 2024)
